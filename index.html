@@ -1,13 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Basic page setup -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel = "stylesheet" href="styles.css">
+    <title>Dark Mode Demo</title>
+
+    <!-- Tiny inline script runs before the page paints so the saved theme
+         is applied immediately (prevents a flash of the wrong theme) -->
+    <script>
+        const saved = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+    </script>
+
+    <!-- Stylesheet with the CSS variables for both themes -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Main script handles the toggle button; defer waits for the HTML to load -->
     <script src="main.js" defer></script>
 </head>
 <body>
-    
+    <!-- Header with the site title and the theme toggle button -->
+    <header class="site-header">
+        <h1>My Website</h1>
+        <button id="theme-toggle" type="button" aria-label="Toggle dark mode">
+            🌙 Dark Mode
+        </button>
+    </header>
+
+    <!-- Main page content -->
+    <main>
+        <section class="card">
+            <h2>Welcome</h2>
+            <p>
+                This page has two color themes: light and dark. Click the button in the
+                top-right corner to switch between them. Your choice is saved in your
+                browser, so it will still be there when you come back.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>How it works</h2>
+            <p>
+                The colors are stored as CSS variables. Switching themes just changes the
+                <code>data-theme</code> attribute on the page, which swaps the variable
+                values. <a href="https://dev.to/codedgar/how-to-create-a-dark-theme-system-in-5-minutes-or-less-with-vanilla-js-2922">Read the tutorial</a>.
+            </p>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Dark Mode project for web programming at GSU</p>
+    </footer>
 </body>
 </html>
