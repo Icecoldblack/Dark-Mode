@@ -1,114 +1,19 @@
-/* ---------- Theme colors as CSS variables ---------- */
-
-/* Light theme (default) */
-:root,
-[data-theme="light"] {
-    --bg-color: #f5f7fa;        /* page background */
-    --card-color: #ffffff;      /* card background */
-    --text-color: #1f2933;      /* main text */
-    --link-color: #0b6bcb;      /* links */
-    --border-color: #d9e0e8;    /* borders */
-    --button-bg: #1f2933;       /* toggle button background */
-    --button-text: #ffffff;     /* toggle button text */
-    --code-bg: #e8edf3;         /* inline code background */
+/* Light theme colors (default) */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #222222;
 }
 
-/* Dark theme: same variable names, different values */
+/* Dark theme colors: same variables, different values */
 [data-theme="dark"] {
-    --bg-color: #121821;
-    --card-color: #1c2532;
-    --text-color: #e6ebf1;
-    --link-color: #6cb2ff;
-    --border-color: #2d3a4b;
-    --button-bg: #e6ebf1;
-    --button-text: #121821;
-    --code-bg: #2a3646;
+    --bg-color: #222222;
+    --text-color: #ffffff;
 }
 
-/* ---------- Base styles (all colors come from the variables) ---------- */
-
+/* The page uses the variables, so changing the theme changes these colors */
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
     background-color: var(--bg-color);
     color: var(--text-color);
-    /* Smooth fade when the theme changes */
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Header: title on the left, button on the right */
-.site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: var(--card-color);
-    border-bottom: 1px solid var(--border-color);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.site-header h1 {
-    margin: 0;
-    font-size: 1.5rem;
-}
-
-/* Theme toggle button */
-#theme-toggle {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-    border: none;
-    border-radius: 6px;
-    background-color: var(--button-bg);
-    color: var(--button-text);
-    transition: opacity 0.2s ease;
-}
-
-#theme-toggle:hover {
-    opacity: 0.85;
-}
-
-#theme-toggle:focus-visible {
-    outline: 3px solid var(--link-color);
-    outline-offset: 2px;
-}
-
-/* Page content area */
-main {
-    max-width: 700px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-}
-
-/* Content cards */
-.card {
-    background-color: var(--card-color);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.card h2 {
-    margin-top: 0;
-}
-
-a {
-    color: var(--link-color);
-}
-
-code {
-    background-color: var(--code-bg);
-    padding: 0.1rem 0.4rem;
-    border-radius: 4px;
-}
-
-/* Footer */
-.site-footer {
-    text-align: center;
-    padding: 1rem;
-    font-size: 0.9rem;
-    border-top: 1px solid var(--border-color);
+    font-family: Arial, sans-serif;
+    padding: 20px;
 }
